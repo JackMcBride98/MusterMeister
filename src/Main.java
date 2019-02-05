@@ -53,7 +53,7 @@ public class Main extends Application implements EventHandler<ActionEvent> {
         }
         if (event.getSource() == signUpButton){
             // sign up
-
+            System.out.println("memes");
         }
     }
 }
