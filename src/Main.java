@@ -14,7 +14,8 @@ import javafx.stage.Stage;
 
 
 public class Main extends Application implements EventHandler<ActionEvent> {
-    private Button button;
+    private Button loginButton;
+    private Button signUpButton;
     private Label nameLabel;
     private TextField nameTextField;
     private Label passwordLabel;
@@ -26,21 +27,18 @@ public class Main extends Application implements EventHandler<ActionEvent> {
 
     @Override
     public void start(Stage primaryStage) {
-        primaryStage.setTitle("Hello World");
-        button = new Button("Enter");
+        primaryStage.setTitle("Sample Safe");
+        loginButton = new Button("Login");
+        signUpButton = new Button("Sign Up");
         nameLabel = new Label("Name");
         passwordLabel = new Label("Password");
         nameTextField = new TextField();
         passwordField = new PasswordField();
 
-        button.setOnAction(this);
+        loginButton.setOnAction(this);
 
         VBox layout = new VBox();
-        layout.getChildren().add(nameLabel);
-        layout.getChildren().add(nameTextField);
-        layout.getChildren().add(passwordLabel);
-        layout.getChildren().add(passwordField);
-        layout.getChildren().add(button);
+        layout.getChildren().addAll(nameLabel, nameTextField, passwordLabel, passwordField, loginButton, signUpButton);
 
         Scene scene = new Scene(layout,300, 250);
         primaryStage.setScene(scene);
@@ -49,8 +47,13 @@ public class Main extends Application implements EventHandler<ActionEvent> {
 
     @Override
     public void handle(ActionEvent event) {
-        if (event.getSource() == button){
+        if (event.getSource() == loginButton){
+            // log in
             System.out.println(nameTextField.getCharacters() + " " + passwordField.getCharacters());
+        }
+        if (event.getSource() == signUpButton){
+            // sign up
+
         }
     }
 }
